@@ -154,9 +154,10 @@ public class Run {
         // 当执行 5 轮所有贴吧还未签到成功就结束操作
         // 不是大水怪的，2-3轮够用了
         Integer flag = 3;
+        Integer numflag=flag;
         try {
             while (success.size() < followNum && flag > 0) {
-                LOGGER.info("-----第 {} 轮签到开始-----", 5 - flag + 1);
+                LOGGER.info("-----第 {} 轮签到开始-----", numflag - flag + 1);
                 LOGGER.info("还剩 {} 贴吧需要签到", followNum - success.size());
                 Iterator<String> iterator = follow.iterator();
                 while (iterator.hasNext()) {
@@ -178,7 +179,7 @@ public class Run {
                         LOGGER.warn(rotation + ": " + "签到失败");
                     }
                 }
-                if (success.size() != followNum - invalid.size() && flag > 1) {
+                if (success.size() != followNum - invalid.size()) {
                     // 为防止短时间内多次请求接口，触发风控，设置每一轮签到完等待 5 分钟
                     
                     Thread.sleep(1000 * 60 * 5);
