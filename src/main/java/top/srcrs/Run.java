@@ -153,7 +153,7 @@ public class Run {
     public void runSign() {
         // 当执行 5 轮所有贴吧还未签到成功就结束操作
         // 不是大水怪的，2-3轮够用了
-        Integer flag = 3;
+        Integer flag = 5;
         Integer numflag=flag;
         try {
             while (success.size() < followNum && flag > 0) {
