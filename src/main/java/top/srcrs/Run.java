@@ -205,11 +205,12 @@ public class Run {
      */
     public void send(String sckey) {
         /** 将要推送的数据 */
+        String text="";
         if(followNum - success.size()!=0){
-            String text = "总: " + followNum + " - ";
+            text += "总: " + followNum + " - ";
             text += "成功: " + success.size() + " 失败: " + (followNum - success.size());
         }else{
-            String text = "全成功";
+            text += "全成功";
         }
         String desp = "共 " + followNum + " 贴吧\n\n";
         desp += "成功: " + success.size() + " 失败: " + (followNum - success.size());
